@@ -1,4 +1,4 @@
-(defproject org.clojars.rmremizov/clj-argparse "0.1.0-SNAPSHOT"
+(defproject org.clojars.rmremizov/clj-argparse "0.1.1-SNAPSHOT"
   :description "A convenience wrapper around org.clojure/tools.cli"
   :url "https://github.com/rremizov/clj-argparse"
   :license {:name "Eclipse Public License"
