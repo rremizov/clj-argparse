@@ -44,6 +44,5 @@
                "Optional arguments:\n"
                "  -h, --help  Print help\n"
                "  -t, --test  Test option\n")]
-      (is (= got-output expected-output))))
-  )
+      (is (= got-output expected-output)))))
 

@@ -46,12 +46,11 @@
 
 (deftest test-parse-results
   (testing "Argument without subcommands"
-      (is (= "value"
-             (-> (parser/parse cli-spec-1 ["value"])
-                 (get core/default-subcommand)
-                 :arguments
-                 (get "argument-name")
-                 ))))
+    (is (= "value"
+           (-> (parser/parse cli-spec-1 ["value"])
+               (get core/default-subcommand)
+               :arguments
+               (get "argument-name")))))
   (testing "Argument of a subcommand"
     (is (= "value"
            (-> (parser/parse cli-spec-0 ["subcommand1" "value"])
