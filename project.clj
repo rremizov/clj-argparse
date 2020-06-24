@@ -6,5 +6,5 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/data.generators "0.1.2"]
                  [org.clojure/tools.cli "0.3.5"]
-                 [prismatic/schema "1.1.3"]])
-
+                 [prismatic/schema "1.1.3"]]
+  :plugins [[lein-cljfmt "0.6.7"]])

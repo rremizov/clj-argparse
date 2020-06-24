@@ -44,9 +44,9 @@
   (when (not= 0 (count (get-in cli-spec
                                [core/default-subcommand :arguments])))
     (throw
-     (ex-info "Cannot define subcommand for command with positional arguments.")))
+     (ex-info "Cannot define subcommand for command with positional arguments." cli-spec)))
   (when (contains? cli-spec subcommand-name)
-    (throw (ex-info (str "Subcommand " subcommand-name " defined already"))))
+    (throw (ex-info (str "Subcommand " subcommand-name " defined already") cli-spec)))
   (-> cli-spec
       (assoc subcommand-name (create-command-spec))
       (update-in [core/default-subcommand :subcommands]
@@ -62,10 +62,10 @@
    (when (not= 0 (count (get-in cli-spec
                                 [subcommand-name :subcommands])))
      (throw (ex-info (str "Cannot define positional argument"
-                          "for command with subcommands."))))
+                          "for command with subcommands.") cli-spec)))
    (when (not (contains? cli-spec subcommand-name))
      (throw (ex-info (str "Cannot define positional argument for a subcommand "
-                          "without definig the subcommand first."))))
+                          "without definig the subcommand first.") cli-spec)))
    (update-in cli-spec
               [subcommand-name :arguments]
               #(conj % [arg-name arg-description]))))
@@ -79,7 +79,7 @@
   ([cli-spec subcommand-name option-specs]
    (when (not (contains? cli-spec subcommand-name))
      (throw (ex-info (str "Cannot define an option for a subcommand "
-                          "without definig the subcommand first."))))
+                          "without definig the subcommand first.") {})))
    (update-in cli-spec
               [subcommand-name :options]
               #(conj % option-specs))))

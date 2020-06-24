@@ -61,4 +61,3 @@
   `(def ~name
      (-> (definition/create-cli-spec)
          ~@body)))
-

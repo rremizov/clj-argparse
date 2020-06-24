@@ -27,6 +27,20 @@ Usage
     ;;  "subcommand" {:options {:option true}
     ;;                :arguments {"first-arg" "arg-value"}}}
 
+    (argparse/defclispec cli-spec
+      (argparse/option ["-o" "--option" "Option description"])
+      (argparse/argument "argument-name" "Positional argument description"))
+
+    (argparse/parse cli-spec ["-h"])
+    ;; =>
+    ;; Positional arguments:
+    ;;    argument-name 	 Positional argument description
+    ;;
+    ;; Optional arguments:
+    ;;   -h, --help    Print help
+    ;;   -o, --option  Option description
+
+
 License
 -------
 
